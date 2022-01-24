@@ -1,6 +1,6 @@
 from typing import List
 
-from conf.EmployeeDefinition import Employee
+from conf.employee_definition import Employee
 from utils import get_json_list_by_file
 
 

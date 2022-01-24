@@ -1,4 +1,4 @@
-from service.EmployeeService import get_employee_list, print_employee_list
+from service.employee_service import get_employee_list, print_employee_list
 
 
 def main():
