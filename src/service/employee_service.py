@@ -67,37 +67,33 @@ def get_employee_list(file_name: str) -> List[Employee]:
             employee.set_manager(manager)
 
     employee_list = employee_mapper.get_employee_list()
-
-    if employee_list:
-        _sort_employee_list(employee_list)
-        return employee_list
-
-    return []
-
-
-def _sort_employee_list(employee_list):
     employee_list.sort(key=lambda e: e.get_first_name())
     employee_list.sort(key=lambda e: len(e.get_member_list()), reverse=True)
     employee_list.sort(key=lambda e: e.has_manager())
 
+    return employee_list
 
-def print_employee_list(employee_list: List[Employee]):
+
+def print_employee_list(employee_list: List[Employee]):  # pragma: no cover
     if not employee_list:
         return
 
     for employee in employee_list:
-        print_employee(employee)
+        _print_employee(employee)
 
-    total_salary = sum(employee.get_salary() for employee in employee_list)
-    print('')
-    print('total_salary = ' + str(total_salary))
+    total_salary = get_total_salary(employee_list)
+    print('\ntotal_salary = ' + str(total_salary))
 
 
-def print_employee(employee: Employee):
+def _print_employee(employee: Employee):  # pragma: no cover
     print(employee.get_first_name())
     if employee.get_member_list():
         print('Employees of ' + employee.get_first_name())
         member_list = employee.get_member_list()
         for member in member_list:
             print('\t' + member.get_first_name())
-        print('')
+    print('----------')
+
+
+def get_total_salary(employee_list: List[Employee]):
+    return sum(employee.get_salary() for employee in employee_list)

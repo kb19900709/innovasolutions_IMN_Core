@@ -31,14 +31,14 @@ def test_employee_get_member_list_with_five_members_and_sorted_by_name():
     member_list = manager.get_member_list()
 
     assert len(member_list) == 5
-    validate_employee_with_manager_available(member_list[0], 4, 'Bill', 12500)
-    validate_employee_with_manager_available(member_list[1], 5, 'Carter', 6250)
-    validate_employee_with_manager_available(member_list[2], 2, 'Davis', 50000)
-    validate_employee_with_manager_available(member_list[3], 3, 'Eureka', 25000)
-    validate_employee_with_manager_available(member_list[4], 6, 'Fox', 3125)
+    validate_employee_and_manager_available(member_list[0], 4, 'Bill', 12500)
+    validate_employee_and_manager_available(member_list[1], 5, 'Carter', 6250)
+    validate_employee_and_manager_available(member_list[2], 2, 'Davis', 50000)
+    validate_employee_and_manager_available(member_list[3], 3, 'Eureka', 25000)
+    validate_employee_and_manager_available(member_list[4], 6, 'Fox', 3125)
 
 
-def validate_employee_with_manager_available(employee: Employee, eid: int, first_name: str, salary: int):
+def validate_employee_and_manager_available(employee: Employee, eid: int, first_name: str, salary: int):
     assert employee.get_eid() == eid
     assert employee.get_first_name() == first_name
     assert employee.get_salary() == salary
