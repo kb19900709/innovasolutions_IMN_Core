@@ -10,5 +10,8 @@ def get_json_list_by_file(file_name: str):
     try:
         return json.load(open(RESOURCES_DIR + file_name))
     except JSONDecodeError as err:
-        print(f"error occurs while parsing json file {err}")
-        return []
+        print(f"error occurs while parsing json file. {err}")
+        raise
+    except FileNotFoundError as err:
+        print(f"file not found, please check the data path. {err}")
+        raise

@@ -15,13 +15,12 @@
     "id": 3,
     "first_name": "David",
     "manager": 1,
-    "salary": 12500
+    "salary": null
   },
   {
     "id": 4,
     "first_name": "Michael",
-    "manager": 1,
-    "salary": 6250
+    "manager": 1
   },
   {
     "id": 5,

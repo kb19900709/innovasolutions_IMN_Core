@@ -1,27 +1,7 @@
 from typing import List
 
-from conf.employee_definition import Employee
+from conf.employee_definition import Employee, EmployeeJson
 from utils import get_json_list_by_file
-
-
-class EmployeeJson(object):
-    def __init__(self, id: int, first_name: str, manager: int, salary: int):
-        self.id = id
-        self.first_name = first_name
-        self.manager = manager
-        self.salary = salary
-
-    def get_id(self):
-        return self.id
-
-    def get_manager(self):
-        return self.manager
-
-    def get_first_name(self):
-        return self.first_name
-
-    def get_salary(self):
-        return self.salary
 
 
 class EmployeeMapper:
@@ -96,4 +76,4 @@ def _print_employee(employee: Employee):  # pragma: no cover
 
 
 def get_total_salary(employee_list: List[Employee]):
-    return sum(employee.get_salary() for employee in employee_list)
+    return sum(employee.get_salary() for employee in employee_list if employee.get_salary())
