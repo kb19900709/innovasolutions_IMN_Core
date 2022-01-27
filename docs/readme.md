@@ -34,7 +34,8 @@ employee_printer->employee_service: print List[Employee]
 ![image workflow_diagram](workflow_diagram.png)
 
 ## How to get the output
-point to the project root directory, and start interactive application. It'll list available files in /resources, please 
+point to the project root directory, and execute the following command to launch the interactive application. 
+It'll list available files in `/resources` path, please 
 copy the file name and paste it on command line to see the result.
 ```shell
 python3 src/employee_printer.py
