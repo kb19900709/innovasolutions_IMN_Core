@@ -39,6 +39,11 @@ def test_incorrect_json_file_without_first_name():
     ]
 
 
+def test_incorrect_json_file_duplicate_id():
+    with pytest.raises(ValueError, match='found duplicate id: 1'):
+        get_employee_list('/test/employees-test-duplicate-id.json')
+
+
 def test_incorrect_first_name_cases():
     _validate_incorrect_names('123', 'A1', '1B', 'A-B', '$Josh', '_Kerry', ' Space')
 

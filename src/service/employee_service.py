@@ -37,6 +37,8 @@ def get_employee_list(file_name: str) -> List[Employee]:
 
     for employee_json_data in employee_json_list:
         employee_json = EmployeeJson(**employee_json_data)
+        if employee_json.get_id() in employee_json_dict:
+            raise ValueError(f"found duplicate id: {employee_json.get_id()}")
         employee_json_dict[employee_json.get_id()] = employee_json
 
     for employee_json in employee_json_dict.values():
@@ -56,6 +58,7 @@ def get_employee_list(file_name: str) -> List[Employee]:
 
 def print_employee_list(employee_list: List[Employee]):  # pragma: no cover
     if not employee_list:
+        print('input employee list is empty')
         return
 
     for employee in employee_list:
