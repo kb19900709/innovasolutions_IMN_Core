@@ -1,7 +1,8 @@
 import sys
 
 paths = [
-    '../src'
+    '../src',
+    '../tests'
 ]
 
 sys.path.extend(paths)
