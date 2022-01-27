@@ -1,0 +1,49 @@
+[
+  {
+    "id": 1,
+    "first_name": "Michael",
+    "manager": 2,
+    "salary": 600000
+  },
+  {
+    "id": 2,
+    "first_name": "Ned",
+    "manager": 5,
+    "salary": 800000
+  },
+  {
+    "id": 3,
+    "first_name": "KB",
+    "manager": 4,
+    "salary": 600000
+  },
+  {
+    "id": 4,
+    "first_name": "Hom",
+    "manager": 5,
+    "salary": 800000
+  },
+  {
+    "id": 5,
+    "first_name": "Steve",
+    "salary": 1000000
+  },
+  {
+    "id": 6,
+    "first_name": "Rick",
+    "manager": 2,
+    "salary": 500000
+  },
+  {
+    "id": 9,
+    "first_name": "Duncan",
+    "manager": 4,
+    "salary": 500000
+  },
+  {
+    "id": 10,
+    "first_name": "Gina",
+    "manager": 4,
+    "salary": null
+  }
+]

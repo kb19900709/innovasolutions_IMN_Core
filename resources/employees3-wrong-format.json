@@ -1,0 +1,20 @@
+[
+  {
+    "eid": 1,
+    "first_name": "Michael",
+    "manager": 2,
+    "salary": 600000
+  },
+  {
+    "eid": 2,
+    "first_name": "Ned",
+    "manager": null,
+    "salary": 800000
+  },
+  {
+    "eid": 3,
+    "first_name": "KB",
+    "manager": 2,
+    "salary": 600000
+  }
+]

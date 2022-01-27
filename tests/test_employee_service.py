@@ -48,6 +48,11 @@ def test_incorrect_first_name_cases():
     _validate_incorrect_names('123', 'A1', '1B', 'A-B', '$Josh', '_Kerry', ' Space')
 
 
+def test_incorrect_manager_not_found():
+    with pytest.raises(ValueError, match='can\'t find the manager with id: 3'):
+        get_employee_list('/test/employees-test-manager-not-found.json')
+
+
 def test_get_employee_list_basic():
     employee_list = get_employee_list('/test/employees-test.json')
     assert len(employee_list) == 5

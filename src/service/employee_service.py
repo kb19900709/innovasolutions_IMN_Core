@@ -12,7 +12,7 @@ class EmployeeMapper:
         if not employee_json:
             raise ValueError('employee_json shouldn\'t be None')
 
-        if not self._employee_dict.get(employee_json.get_id()):
+        if employee_json.get_id() not in self._employee_dict:
             self._employee_dict[employee_json.get_id()] = Employee(
                 employee_json.get_id()
                 , employee_json.get_first_name()
@@ -45,6 +45,9 @@ def get_employee_list(file_name: str) -> List[Employee]:
         employee = employee_mapper.map(employee_json)
         manager_id = employee_json.get_manager()
         if manager_id:
+            if manager_id not in employee_json_dict:
+                raise ValueError(f"can't find the manager with id: {manager_id}")
+
             manager = employee_mapper.map(employee_json_dict[manager_id])
             employee.set_manager(manager)
 
