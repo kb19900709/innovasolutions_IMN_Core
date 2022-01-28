@@ -49,3 +49,5 @@ pytest -v --cov=../src
 ```
 ![image pytest_result](pytest_result.png)
 
+## See more 
+check out `/docs/pdf/SPEC.pdf`
