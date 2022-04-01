@@ -8,3 +8,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+  employee_list = get_employee_list('employees.json')
