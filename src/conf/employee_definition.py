@@ -28,6 +28,9 @@ class EmployeeBase(ABC):
         # just for printing object information, no need to take care about in coverage report
         pass
 
+    def get_class_name(self):
+        return type(self).__name__
+
 
 class Employee(EmployeeBase):
     """

@@ -1,7 +1,7 @@
 import pytest
 from pydantic import ValidationError
 
-from conf.employee_definition import Employee, Manager
+from src.conf.employee_definition import Employee, Manager
 from test_utils import get_employee_json
 
 

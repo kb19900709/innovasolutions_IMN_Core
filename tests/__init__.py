@@ -1,8 +1,8 @@
-import sys
+# import sys
 
-paths = [
-    '../src',
-    '../tests'
-]
+# paths = [
+#     '../src',
+#     '../tests'
+# ]
 
-sys.path.extend(paths)
+# sys.path.extend(paths)

@@ -3,8 +3,8 @@ from json import JSONDecodeError
 import pytest
 from pydantic import ValidationError
 
-from conf.employee_definition import Employee, Manager
-from service.employee_service import get_employee_list, get_total_salary, EmployeeMapper
+from src.conf.employee_definition import Employee, Manager
+from src.service.employee_service import get_employee_list, get_total_salary, EmployeeMapper
 from test_utils import get_employee_json
 
 
@@ -79,22 +79,22 @@ def test_get_employee_list_members_relation_and_type():
 
     top_of_employee = employee_list[0]
     assert top_of_employee.get_first_name() == 'Joy'
-    assert type(top_of_employee) == Manager
+    assert top_of_employee.get_class_name() == 'Manager'
     assert len(top_of_employee.get_member_list()) == 1
 
     second_of_employee = top_of_employee.get_member_list()[0]
     assert second_of_employee.get_first_name() == 'Ted'
-    assert type(second_of_employee) == Manager
+    assert top_of_employee.get_class_name() == 'Manager'
     assert len(second_of_employee.get_member_list()) == 3
 
     assert second_of_employee.get_member_list()[0].get_first_name() == 'David'
-    assert type(second_of_employee.get_member_list()[0]) == Employee
+    assert second_of_employee.get_member_list()[0].get_class_name() == 'Employee'
 
     assert second_of_employee.get_member_list()[1].get_first_name() == 'Michael'
-    assert type(second_of_employee.get_member_list()[1]) == Employee
+    assert second_of_employee.get_member_list()[2].get_class_name() == 'Employee'
 
     assert second_of_employee.get_member_list()[2].get_first_name() == 'Peter'
-    assert type(second_of_employee.get_member_list()[2]) == Employee
+    assert second_of_employee.get_member_list()[2].get_class_name() == 'Employee'
 
 
 def test_employee_mapper_map_to_employee_set_none_as_mapper_input():
@@ -147,9 +147,9 @@ def test_employee_mapper_cache_and_type_transfer():
 
     employee_list = employee_mapper.get_employee_list()
     employee_list.sort(key=lambda e: e.get_eid())
-    assert type(employee_list[0]) == Manager
-    assert type(employee_list[1]) == Employee
-    assert type(employee_list[2]) == Manager
+    assert employee_list[0].get_class_name() == 'Manager'
+    assert employee_list[1].get_class_name() == 'Employee'
+    assert employee_list[2].get_class_name() == 'Manager'
 
 
 def test_total_salary():
